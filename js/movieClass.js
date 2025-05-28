@@ -48,3 +48,42 @@ movies.sort((a, b) => a.movieID - b.movieID);
 console.log("sorted movies by movieID:");
 // loop over sorted movies array and display to console
 movies.forEach((movie) => console.log(movie));
+
+// create the search function
+/**
+ * sequentialSearch for  arrays of objects
+ * @param {array} arraySearch - // the array to be searched
+ * @param {number} target - the value to be found in the array
+ * @returns {null}   if the movieID is not in the array,
+ * @returns {movie} the movie if the movieID is in the array.
+ */
+
+function sequentialSearch(arraySearch, movieID) {
+  // set a found variable
+  let found = null;
+  // loop through the array
+  for (let i = 0; i < arraySearch.length; i++) {
+    // compare the current index to our target
+    if (arraySearch[i].movieID == movieID) {
+      // set found to index
+      found = arraySearch[i];
+      // terminate the loop
+      break;
+    }
+  }
+  // return found
+  return found;
+}
+
+// Example search operation
+const searchId = 6;
+// call the function
+const foundMovie = sequentialSearch(movies, searchId);
+// output the results
+if (foundMovie == null) {
+  console.log(`The movieID of ${searchId} was not found ${foundMovie}`);
+} else {
+  console.log(
+    `The movieID of ${searchId} was found: ${JSON.stringify(foundMovie)}`
+  );
+}
