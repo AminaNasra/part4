@@ -41,3 +41,10 @@ const movies = [
 // output movies array to console
 console.log("Here is the movies array:");
 movies.forEach((movie) => console.log(movie));
+
+// sorting movies array in  ascending order by movieID.
+movies.sort((a, b) => a.movieID - b.movieID);
+
+console.log("sorted movies by movieID:");
+// loop over sorted movies array and display to console
+movies.forEach((movie) => console.log(movie));
